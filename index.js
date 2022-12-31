@@ -13,7 +13,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 //connect to db 
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URI).then(() =>{
+    console.log("Connection Established...")}).catch((err) =>{console.log(err)})
     .then(() => { 
         //listen for requests
 app.listen(process.env.PORT || 4500, (req, res) => {
