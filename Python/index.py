@@ -3,10 +3,16 @@ from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 import time
 import pyautogui as pt
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
+twitter_uname = os.environ['Twit_Uname']
+twitter_pwd = os.environ['Twit_Pass']
+MONGO_URI = os.environ['MONGO_URI']
 
 # Connect to the MongoDB server
-client = MongoClient('mongodb+srv://hunter:N81K5ozJf40hgUAB@cluster0.lpazrky.mongodb.net/?retryWrites=true&w=majority')
+client = MongoClient(MONGO_URI)
 Chrome_Driver = "C:\\Program Files (x86)\\chromedriver.exe"
 # Get a reference to the "my_database" database and the "my_collection" collection
 db = client['test']
@@ -46,7 +52,7 @@ while 1:
             time.sleep(6)
 
             enter_mail = driver.find_element("xpath","/html/body/div[1]/div/div/div[1]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div/div/div/div[5]/label/div/div[2]/div/input")
-            enter_mail.send_keys("Jay0x5")
+            enter_mail.send_keys(twitter_uname)
 
             next_button_1 = driver.find_element("xpath","/html/body/div[1]/div/div/div[1]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div/div/div/div[6]/div")
             next_button_1.click()
@@ -54,7 +60,7 @@ while 1:
             time.sleep(5)
 
             pass_button = driver.find_element("xpath","/html/body/div[1]/div/div/div[1]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div/div[3]/div/label/div/div[2]/div[1]/input")
-            pass_button.send_keys("Xboxones1")
+            pass_button.send_keys(twitter_pwd)
 
             login_button_1 = driver.find_element("xpath","/html/body/div[1]/div/div/div[1]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div/div[1]/div/div/div/div")
             login_button_1.click()
